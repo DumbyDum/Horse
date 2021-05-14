@@ -23,6 +23,10 @@ import java.util.Random;
 @SpringBootApplication
 public class KittenApplication {
 
+	long a = 0;
+	Random r = new Random();
+	double last_g = 0;
+
 	@RequestMapping(
 			value = "/kitten",
 			method= RequestMethod.GET,
@@ -40,7 +44,9 @@ public class KittenApplication {
 	@RequestMapping("/gaussian")
 	@ResponseBody
 	String getGaussian(){
-		return Double.toString(new Random().nextGaussian());
+		r.setSeed(a);
+		last_g = r.nextGaussian();
+		return Double.toString(last_g);
 	}
 
 	@RequestMapping("/")
@@ -48,6 +54,7 @@ public class KittenApplication {
 	String hello(){
 		return "Hello!";
 	}
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(KittenApplication.class, args);
