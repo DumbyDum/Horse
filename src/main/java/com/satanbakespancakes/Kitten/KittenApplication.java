@@ -33,7 +33,7 @@ public class KittenApplication {
 			produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
 	ResponseEntity<byte[]> getKitten() throws IOException {
-		Resource img = new ClassPathResource("src/main/resources/static/kitten.jpg");
+		Resource img = new ClassPathResource("/Kitten/src/main/resources/static/kitten.jpg");
 		byte[] bytes = StreamUtils.copyToByteArray(img.getInputStream());
 
 		return ResponseEntity.ok()
