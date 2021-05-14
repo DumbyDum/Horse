@@ -55,6 +55,10 @@ public class KittenApplication {
 		return "Hello!";
 	}
 
+	@RequestMapping("/graph")
+	@ResponseBody
+	void getGraph(){}
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(KittenApplication.class, args);
