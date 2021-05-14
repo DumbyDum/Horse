@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Random;
 
 @Controller
@@ -33,7 +34,7 @@ public class KittenApplication {
 			produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
 	ResponseEntity<byte[]> getKitten() throws IOException {
-		Resource img = new ClassPathResource("/Kitten/src/main/resources/static/kitten.jpg");
+		Resource img = new ClassPathResource("kitten.jpg");
 		byte[] bytes = StreamUtils.copyToByteArray(img.getInputStream());
 
 		return ResponseEntity.ok()
