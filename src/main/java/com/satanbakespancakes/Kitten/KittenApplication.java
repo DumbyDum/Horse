@@ -71,6 +71,7 @@ public class KittenApplication {
 		while (a < last_g){
 			last_g = r.nextGaussian();
 		}
+		a+=0.1;
 		return Long.toString(System.nanoTime()-startTime);
 	}
 
