@@ -53,8 +53,7 @@ public class KittenApplication {
 	@RequestMapping("/gaussian")
 	@ResponseBody
 	String getGaussian(){
-		last_g = r.nextGaussian();
-		return Double.toString(last_g);
+		return Double.toString(r.nextGaussian());
 	}
 
 	@RequestMapping("/")
