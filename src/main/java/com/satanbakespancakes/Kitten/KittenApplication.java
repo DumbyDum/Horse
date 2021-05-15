@@ -29,7 +29,7 @@ import java.util.Timer;
 @SpringBootApplication
 public class KittenApplication {
 
-	long a = 0;
+	double a = 0;
 	Random r = new Random();
 	double last_g = 0;
 	@Autowired
