@@ -1,4 +1,4 @@
-package com.kiyashinura.opossum;
+package com.emindor.horse;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +27,13 @@ public class OpossumApplication {
 
 
 	@RequestMapping(
-			value = "/posya",
+			value = "/horse",
 			method= RequestMethod.GET,
 			produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
 	ResponseEntity<byte[]> getKitten() throws IOException {
 
-		Resource img = new ClassPathResource("classpath:/static/posya.jpg");
+		Resource img = new ClassPathResource("classpath:/static/img.jpg");
 		byte[] bytes = StreamUtils.copyToByteArray(img.getInputStream());
 
 		return ResponseEntity.ok()
@@ -50,7 +50,7 @@ public class OpossumApplication {
 	@RequestMapping("/")
 	@ResponseBody
 	String hello(){
-		return "Hello!";
+		return "Hi!";
 	}
 
 	@RequestMapping("/gaussian_elapsed")
