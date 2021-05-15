@@ -18,7 +18,7 @@ import java.util.Random;
 
 @Controller
 @SpringBootApplication
-public class OpossumApplication {
+public class HorseApplication {
 
 	double a = 0;
 	Random r = new Random();
@@ -70,7 +70,7 @@ public class OpossumApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(OpossumApplication.class, args);
+		SpringApplication.run(HorseApplication.class, args);
 	}
 
 }
