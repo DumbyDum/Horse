@@ -68,7 +68,7 @@ public class KittenApplication {
 	@ResponseBody
 	String getGraph(){
 		long startTime = System.nanoTime();
-		while (a < last_g){
+		while (last_g < a){
 			last_g = r.nextGaussian();
 		}
 		a+=0.1;
