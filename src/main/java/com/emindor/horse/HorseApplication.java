@@ -29,11 +29,11 @@ public class HorseApplication {
 	@RequestMapping(
 			value = "/horse",
 			method= RequestMethod.GET,
-			produces = MediaType.IMAGE_JPEG_VALUE)
+			produces = MediaType.IMAGE_PNG_VALUE)
 	@ResponseBody
 	ResponseEntity<byte[]> getKitten() throws IOException {
 
-		Resource img = new ClassPathResource("classpath:/static/img.jpg");
+		Resource img = new ClassPathResource("classpath:/static/img.png");
 		byte[] bytes = StreamUtils.copyToByteArray(img.getInputStream());
 
 		return ResponseEntity.ok()
