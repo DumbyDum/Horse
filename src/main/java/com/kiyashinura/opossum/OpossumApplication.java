@@ -27,7 +27,7 @@ public class OpossumApplication {
 
 
 	@RequestMapping(
-			value = "/kitten",
+			value = "/posya",
 			method= RequestMethod.GET,
 			produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
