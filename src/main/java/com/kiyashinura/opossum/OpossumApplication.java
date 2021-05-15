@@ -1,4 +1,4 @@
-package com.satanbakespancakes.Kitten;
+package com.kiyashinura.opossum;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class OpossumApplication {
 	@ResponseBody
 	ResponseEntity<byte[]> getKitten() throws IOException {
 
-		Resource img = new ClassPathResource("classpath:/static/kitten.jpg");
+		Resource img = new ClassPathResource("classpath:/static/posya.jpg");
 		byte[] bytes = StreamUtils.copyToByteArray(img.getInputStream());
 
 		return ResponseEntity.ok()
