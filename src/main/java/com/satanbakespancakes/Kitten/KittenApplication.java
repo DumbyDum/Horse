@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
 @Controller
 @SpringBootApplication
@@ -53,7 +54,6 @@ public class KittenApplication {
 	@RequestMapping("/gaussian")
 	@ResponseBody
 	String getGaussian(){
-		r.setSeed(a);
 		last_g = r.nextGaussian();
 		return Double.toString(last_g);
 	}
@@ -64,9 +64,15 @@ public class KittenApplication {
 		return "Hello!";
 	}
 
-	@RequestMapping("/graph")
+	@RequestMapping("/gaussian_elapsed")
 	@ResponseBody
-	void getGraph(){}
+	String getGraph(){
+		long startTime = System.nanoTime();
+		while (a < last_g){
+			last_g = r.nextGaussian();
+		}
+		return Long.toString(System.nanoTime()-startTime);
+	}
 
 
 
