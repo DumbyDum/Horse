@@ -3,10 +3,13 @@ package com.satanbakespancakes.Kitten;
 
 import org.apache.tomcat.jni.Buffer;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
 @Controller
 @SpringBootApplication
@@ -27,6 +31,9 @@ public class KittenApplication {
 	long a = 0;
 	Random r = new Random();
 	double last_g = 0;
+	@Autowired
+	ResourceLoader loader;
+
 
 	@RequestMapping(
 			value = "/kitten",
@@ -34,7 +41,8 @@ public class KittenApplication {
 			produces = MediaType.IMAGE_JPEG_VALUE)
 	@ResponseBody
 	ResponseEntity<byte[]> getKitten() throws IOException {
-		Resource img = new ClassPathResource("kitten.jpg");
+
+		Resource img = new ClassPathResource("classpath:/static/kitten.jpg");
 		byte[] bytes = StreamUtils.copyToByteArray(img.getInputStream());
 
 		return ResponseEntity.ok()
@@ -59,6 +67,7 @@ public class KittenApplication {
 	@RequestMapping("/graph")
 	@ResponseBody
 	void getGraph(){}
+
 
 
 	public static void main(String[] args) {
