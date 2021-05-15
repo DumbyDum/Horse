@@ -67,11 +67,13 @@ public class KittenApplication {
 	@RequestMapping("/gaussian_elapsed")
 	@ResponseBody
 	String getGraph(){
+		a+=0.1;
 		long startTime = System.nanoTime();
 		while (last_g < a){
+			r.setSeed(r.nextLong());
 			last_g = r.nextGaussian();
 		}
-		a+=0.1;
+
 		return (System.nanoTime()-startTime) + "\n"+ a + "\n" +last_g;
 	}
 
