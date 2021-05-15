@@ -1,10 +1,7 @@
 package com.satanbakespancakes.Kitten;
 
 
-import org.apache.tomcat.jni.Buffer;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.io.ClassPathResource;
@@ -16,18 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.Random;
-import java.util.ResourceBundle;
-import java.util.Timer;
 
 @Controller
 @SpringBootApplication
-public class KittenApplication {
+public class OpossumApplication {
 
 	double a = 0;
 	Random r = new Random();
@@ -65,7 +56,7 @@ public class KittenApplication {
 	@RequestMapping("/gaussian_elapsed")
 	@ResponseBody
 	String getGraph(){
-		a+=0.1;
+		a+=0.5;
 		double last_g = r.nextGaussian();
 		long startTime = System.nanoTime();
 		while (last_g < a){
@@ -79,7 +70,7 @@ public class KittenApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(KittenApplication.class, args);
+		SpringApplication.run(OpossumApplication.class, args);
 	}
 
 }
