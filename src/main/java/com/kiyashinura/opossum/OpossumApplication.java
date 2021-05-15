@@ -41,7 +41,6 @@ public class OpossumApplication {
 				.body(bytes);
 	}
 
-
 	@RequestMapping("/gaussian")
 	@ResponseBody
 	String getGaussian(){
