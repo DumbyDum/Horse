@@ -31,7 +31,6 @@ public class KittenApplication {
 
 	double a = 0;
 	Random r = new Random();
-	double last_g = 0;
 	@Autowired
 	ResourceLoader loader;
 
@@ -68,6 +67,7 @@ public class KittenApplication {
 	@ResponseBody
 	String getGraph(){
 		a+=0.1;
+		double last_g = r.nextGaussian();
 		long startTime = System.nanoTime();
 		while (last_g < a){
 			r.setSeed(r.nextLong());
